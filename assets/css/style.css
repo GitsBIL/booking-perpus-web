@@ -1,0 +1,253 @@
+/* =========================================
+   THEMA: WOODEN LIBRARY (Global Theme)
+   Author: Book Ing Team
+   ========================================= */
+
+/* Import Font Global (Agar tidak perlu pasang link font di setiap file PHP) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap');
+
+:root {
+    /* --- PALET WARNA (Sama Persis dengan Login) --- */
+    --wood-dark: #3E2723;       /* Cokelat Tua (Sidebar/Header) */
+    --wood-medium: #5D4037;     /* Cokelat Sedang (Hover) */
+    --wood-light: #8D6E63;      /* Cokelat Terang */
+    
+    --copper-accent: #D35400;   /* Orange Tembaga (Tombol Aksi/Highlight) */
+    --copper-hover: #E67E22;    /* Orange lebih terang untuk hover */
+    
+    /* --- BACKGROUND & TEXT --- */
+    --bg-cream: #F5F1E8;        /* Warna Kertas Kuno (Background Utama) */
+    --card-bg: #FFFFFF;         /* Putih Bersih (Container Data) */
+    
+    --text-main: #2C1B18;       /* Hitam Kecokelatan (Teks Utama) */
+    --text-muted: #6D605B;      /* Abu Kecokelatan (Teks Sekunder) */
+    --border-color: #E0D8CF;    /* Garis Halus */
+    
+    /* --- STATUS COLORS (Bootstrap Overrides) --- */
+    --status-success: #27ae60;  /* Hijau Daun */
+    --status-warning: #f39c12;  /* Kuning Emas */
+    --status-danger: #c0392b;   /* Merah Bata */
+}
+
+/* ==========================
+   RESET & GLOBAL STYLES
+   ========================== */
+body {
+    background-color: var(--bg-cream);
+    font-family: 'Poppins', sans-serif; /* Font Utama (Body) */
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-font {
+    font-family: 'Merriweather', serif; /* Font Klasik untuk Judul */
+    font-weight: 700;
+    color: var(--wood-dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--wood-dark);
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--copper-accent);
+}
+
+/* ==========================
+   LAYOUT: SIDEBAR & WRAPPER
+   (JANGAN DIUBAH AGAR POSISI TIDAK RUSAK)
+   ========================== */
+#wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    transition: all 0.3s;
+}
+
+#sidebar-wrapper {
+    min-width: 260px;
+    max-width: 260px;
+    background-color: var(--wood-dark);
+    color: #fff;
+    min-height: 100vh;
+    transition: all 0.3s;
+    box-shadow: 4px 0 15px rgba(62, 39, 35, 0.15);
+    z-index: 1000;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+#page-content-wrapper {
+    width: 100%;
+    padding: 0;
+    transition: all 0.3s;
+    background-color: var(--bg-cream);
+}
+
+/* Sidebar Branding */
+.sidebar-heading {
+    padding: 2rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 900; /* Merriweather Bold */
+    background-color: rgba(0,0,0,0.1);
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    letter-spacing: 0.5px;
+}
+.sidebar-heading span {
+    color: var(--copper-accent);
+}
+
+/* Sidebar Menu */
+.list-group-item {
+    background-color: transparent;
+    border: none;
+    color: rgba(255,255,255,0.7); /* Putih transparan agar tidak menusuk mata */
+    padding: 16px 30px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-left: 5px solid transparent; /* Indikator aktif di kiri */
+    transition: all 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: rgba(255,255,255,0.05);
+    color: #fff;
+    border-left: 5px solid var(--copper-accent); /* Orange saat hover */
+}
+
+.list-group-item.active {
+    background-color: rgba(211, 84, 0, 0.1); /* Background orange transparan */
+    color: #fff;
+    font-weight: 600;
+    border-left: 5px solid var(--copper-accent);
+}
+
+.list-group-item i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* ==========================
+   COMPONENTS UI
+   ========================== */
+
+/* Navbar Atas */
+.navbar-custom {
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    padding: 15px 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Kartu / Container Data */
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* Lebih membulat modern */
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(62, 39, 35, 0.02);
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 2px solid var(--bg-cream);
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    color: var(--wood-dark);
+    padding: 18px 25px;
+}
+
+/* Tabel Klasik */
+.table {
+    margin-bottom: 0;
+}
+.table thead th {
+    background-color: var(--wood-dark);
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    padding: 12px 15px;
+    letter-spacing: 0.5px;
+}
+.table tbody td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+}
+.table-hover tbody tr:hover {
+    background-color: #FAF8F5; /* Cream sangat muda saat hover row */
+}
+
+/* Tombol Custom */
+.btn-primary {
+    background-color: var(--wood-dark);
+    border-color: var(--wood-dark);
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    background-color: #2c1b18;
+    border-color: #2c1b18;
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background-color: var(--copper-accent);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+.btn-accent:hover {
+    background-color: var(--copper-hover);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(211, 84, 0, 0.2);
+}
+
+/* Statistik Cards (Dashboard) */
+.stat-card {
+    border-left: 5px solid var(--wood-dark);
+    transition: 0.3s;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(62, 39, 35, 0.1);
+}
+.stat-icon {
+    font-size: 3rem;
+    color: var(--copper-accent);
+    opacity: 0.8;
+}
+
+/* =========================================
+   RESPONSIVE LOGIC (Sidebar Toggle)
+   ========================================= */
+
+/* Mobile: Sidebar sembunyi (-260px) */
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: -260px;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+}
+
+/* Desktop: Sidebar muncul (0px) */
+@media (min-width: 769px) {
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -260px;
+    }
+    #wrapper.toggled #page-content-wrapper {
+        width: 100%;
+    }
+}
